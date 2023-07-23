@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blockgen
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: blockgen
+  template:
+    metadata:
+      labels:
+        app: blockgen
+    spec:
+      containers:
+        - name: blockgen
+          image: blockgen:latest
+          imagePullPolicy: Never
+          ports:
+            - containerPort: 8080
